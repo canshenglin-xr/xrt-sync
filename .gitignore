@@ -61,3 +61,4 @@ venv/
 # Local secrets
 .env
 .env.local
+.commit_stage/

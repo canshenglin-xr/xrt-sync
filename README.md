@@ -2,7 +2,7 @@
 
 **Cross-platform Real-Time State Synchronization Middleware for XR / Simulation / Multi-Device Applications**
 
-[![CI](https://github.com/canshenglin/xrt-sync/actions/workflows/ci.yml/badge.svg)](https://github.com/canshenglin/xrt-sync/actions/workflows/ci.yml)
+[![CI](https://github.com/canshenglin-xr/xrt-sync/actions/workflows/ci.yml/badge.svg)](https://github.com/canshenglin-xr/xrt-sync/actions/workflows/ci.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Language: C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
 [![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20iOS%20%7C%20Android-lightgrey)](#supported-platforms)
@@ -86,7 +86,7 @@ See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full design rationale
 ### Quick Start
 
 ```bash
-git clone https://github.com/canshenglin/xrt-sync.git
+git clone https://github.com/canshenglin-xr/xrt-sync.git
 cd xrt-sync
 cmake -S . -B build -DXRTSYNC_BUILD_EXAMPLES=ON -DXRTSYNC_BUILD_TESTS=ON
 cmake --build build -j
@@ -196,7 +196,7 @@ VR/AR 头显、多屏模拟器、分布式训练系统、远程临场机器人�
 ### 快速开始
 
 ```bash
-git clone https://github.com/canshenglin/xrt-sync.git
+git clone https://github.com/canshenglin-xr/xrt-sync.git
 cd xrt-sync
 cmake -S . -B build -DXRTSYNC_BUILD_EXAMPLES=ON -DXRTSYNC_BUILD_TESTS=ON
 cmake --build build -j
@@ -224,7 +224,7 @@ Licensed under the [Apache License, Version 2.0](LICENSE). You may use this soft
 **Cansheng LIN (Vincent)** — Principal author and maintainer.
 
 Cansheng is an industry practitioner with eight-plus years of experience leading large-scale interactive software teams. 
-Contact: open an [issue](https://github.com/canshenglin/xrt-sync/issues) or [discussion](https://github.com/canshenglin/xrt-sync/discussions).
+Contact: open an [issue](https://github.com/canshenglin-xr/xrt-sync/issues) or [discussion](https://github.com/canshenglin-xr/xrt-sync/discussions).
 
 Contributions, bug reports, and use-case proposals from the U.S. research, education, healthcare, and defense-simulation communities are particularly welcome — please see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
