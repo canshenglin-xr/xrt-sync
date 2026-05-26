@@ -71,8 +71,18 @@ static_assert(sizeof(StateAckTrailer) == 28,
 // little-endian on the wire, which matches every platform xrt-sync targets
 // (ARM and x86-64 in their normal configurations). On the rare big-endian
 // host we would byteswap here; for now we static_assert.
+//
+// MSVC does not define the GCC/Clang __BYTE_ORDER__ / __ORDER_LITTLE_ENDIAN__
+// builtins. All Windows targets supported by MSVC (x86, x64, ARM, ARM64) are
+// little-endian by the platform ABI, so we simply skip the assertion there.
+#if defined(__BYTE_ORDER__) && defined(__ORDER_LITTLE_ENDIAN__)
 static_assert(__BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__,
               "xrt-sync currently assumes a little-endian host");
+#elif defined(_MSC_VER)
+// MSVC: Windows ABI guarantees little-endian on all supported architectures.
+#else
+#error "xrt-sync requires a little-endian host; please port endianness handling for this toolchain"
+#endif
 
 inline void WriteHeader(void* dst, const Header& h) noexcept {
   std::memcpy(dst, &h, sizeof(Header));
