@@ -149,8 +149,12 @@ struct SessionStats {
 // Callback signature for inbound state updates. The pointer in `update`
 // references an internal buffer that remains valid only for the duration of
 // the callback — copy it if you need to retain the payload.
+//
+// NOTE: Callbacks should not throw. We cannot mark the function-type
+// argument `noexcept` because std::function does not currently support
+// noexcept-qualified call signatures across libstdc++, libc++, and MSVC STL.
 using StateUpdateHandler =
-    std::function<void(const StateUpdate& update) noexcept>;
+    std::function<void(const StateUpdate& update)>;
 
 // Callback signature for participant lifecycle events.
 enum class ParticipantEvent : std::uint8_t {
@@ -158,8 +162,10 @@ enum class ParticipantEvent : std::uint8_t {
   kLeft = 1,
   kTimedOut = 2,
 };
+// See note above: callbacks should not throw, but the signature cannot be
+// noexcept-qualified inside std::function.
 using ParticipantEventHandler =
-    std::function<void(ParticipantId who, ParticipantEvent event) noexcept>;
+    std::function<void(ParticipantId who, ParticipantEvent event)>;
 
 // A Session represents one connected synchronization endpoint. Sessions are
 // created via Session::Create(); the constructor is private to enforce the

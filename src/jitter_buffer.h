@@ -28,6 +28,7 @@
 
 #include <chrono>
 #include <cstdint>
+#include <cstdlib>
 #include <deque>
 #include <optional>
 #include <vector>
