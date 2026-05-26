@@ -29,11 +29,10 @@ jobs:
             cc: clang-14
             cxx: clang++-14
             build_type: Release
-          - os: macos-13
-            compiler: clang
-            cc: clang
-            cxx: clang++
-            build_type: Release
+          # NOTE: macos-13 (Ventura) hosted runners are deprecated by GitHub
+          # and availability is unreliable. macos-14 (Sonoma, ARM64) provides
+          # the primary Apple-host coverage; iOS cross-compile (see below)
+          # adds additional Apple-platform validation.
           - os: macos-14
             compiler: clang
             cc: clang
